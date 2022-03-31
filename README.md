@@ -6,4 +6,4 @@ R Lunch Labs are weekly, hands-on trainings hosted by the Urban Institute R User
 
 | Date | Topic | 
 | :---: | :--- | 
-`2022-03-31` | [Visualizing Anscombe's Quartet]() | 
+`2022-03-31` | [Visualizing Anscombe's Quartet](https://github.com/UI-Research/r-lunch-lab/tree/main/labs/2022/2022-03-31) | 
