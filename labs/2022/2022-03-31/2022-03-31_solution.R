@@ -27,7 +27,6 @@ tidy_anscombe <-
   ungroup() %>%
   select(-id)
 
-
 # Exercise 1 --------------------------------------------------------------
 
 ## 1. Create a data viz with `x = x`, `y = y`, and `geom_smooth(method = "lm", se = FALSE)`
@@ -35,6 +34,12 @@ tidy_anscombe <-
 ## 2. Add facet_wrap() based on the quartet variable
 
 ## 3. Add geom_point()
+
+tidy_anscombe %>%
+  ggplot(mapping = aes(x = x, y = y)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point() +
+  facet_wrap(~ quartet)
 
 # Exercise 2 --------------------------------------------------------------
 
@@ -45,4 +50,7 @@ tidy_anscombe <-
 ## 3. facet_wrap() the data by the dataset variable
 
 read_tsv(here::here("data", "DatasaurusDozen.tsv")) %>%
-  ggplot()
+  ggplot(aes(x = x, y = y)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~ dataset)
