@@ -3,6 +3,7 @@ library(tidyverse)
 library(urbnthemes)
 
 set_urbn_defaults()
+
 penguins_df = palmerpenguins::penguins %>%
   filter(!is.na(bill_length_mm) &!is.na(bill_depth_mm))
 
@@ -26,7 +27,7 @@ penguins_df %>%
   geom_point(aes(color = species), alpha = 0.6) +
   labs(x = "Bill Length (mm)",
        y = "Bill Depth (mm)",
-       title = "Bill dimensions of *Adelie, Chinstrap and Gentoo* penguins") +
+       title = "Bill dimensions of *Adelie*, Chinstrap and Gentoo penguins") +
   theme(plot.title = element_markdown())
 
 
@@ -50,7 +51,8 @@ penguins_df %>%
   geom_point(aes(color = species), alpha = 0.6) +
   scale_y_continuous(expand = expansion(mult = c(0.3, 0.3))) +
   scale_x_continuous(expand = expansion(mult = c(0.3, 0.3))) +
-  geom_mark_ellipse(aes(label = species, fill = species)) +
+  geom_mark_hull(aes(label = species, fill = species),
+                   ) +
   labs(x = "Bill Length (mm)",
        y = "Bill Depth (mm)",
        title = title_text) +
@@ -69,11 +71,6 @@ diamonds %>%
 
 # ------- Adjusting legends -----------
 
-starwars %>%
-  ggplot(aes(x = height, y = mass, color = gender)) +
-  geom_point() +
-  labs(color = "HH") +
-  theme(legend.title = element_text())
 
 penguins_df %>%
   ggplot(aes(x = bill_length_mm, y = bill_depth_mm)) +
